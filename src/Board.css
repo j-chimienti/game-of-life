@@ -1,19 +1,18 @@
 .cell {
     height: 50px;
-    border: 2px solid var(--dark);
     width: 50px;
 }
-
 
 .cell.one-thousand {
     border-width: 0.2px;
     height: 10px;
     width: 10px;
 }
+
 .cell.ten-thousand {
 
     border-width: 0.1px;
-    height: 7px;
-    width: 7px;
+    height: 9px;
+    width: 9px;
 
 }

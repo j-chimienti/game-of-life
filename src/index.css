@@ -7,3 +7,7 @@ body, .app {
 
     font-family: var(--font-family-monospace);
 }
+
+.pointer {
+    cursor: pointer;
+}

@@ -11,7 +11,7 @@ function Board({board, running = false, updateBoard, boardSize}) {
 
     const boardArr = chunk(_board, Math.sqrt(boardSize));
 
-    let klass = 'cell ';
+    let klass = 'cell pointer ';
 
     if (2500 === boardSize) {
 
@@ -32,7 +32,7 @@ function Board({board, running = false, updateBoard, boardSize}) {
                                     <div
                                         key={x}
                                         onClick={e => !running && updateBoard(cell, x, y)}
-                                        className={Number(cell) === 1 ? `${klass} bg-success` : `${klass} bg-warning`}>
+                                        className={Number(cell) === 1 ? `${klass} bg-success` : `${klass} bg-info`}>
                                     </div>
                                 )
                             })}

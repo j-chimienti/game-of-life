@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Board from "./Board";
 import {determineStatusOfCell, deepFlatten, chunk, shuffle} from "./utils";
+import Params from "./Params";
 
 const boardSize = 100;
 
@@ -13,7 +14,7 @@ class App extends Component {
         board: '0'.repeat(boardSize),
         boardSize,
         running: false,
-        aliveProportion: .5,
+        aliveProportion: 25,
         gameInterval: null,
         generation: 0
     };
@@ -45,7 +46,7 @@ class App extends Component {
 
         const {aliveProportion, running, boardSize} = this.state;
 
-        const threshold = aliveProportion * boardSize;
+        const threshold = (aliveProportion / 100) * boardSize;
 
         if (running) {
 
@@ -69,31 +70,18 @@ class App extends Component {
 
         const rowLength = Math.sqrt(boardSize);
 
-        const _b = chunk(Array.from(board), rowLength);
+        const twoDBoard = chunk(Array.from(board), rowLength);
 
-        const neighbors = _b.map((row, y) => row.map((cell, x) => {
-            return {
-                neighbors: this.getNeigbors(Number(cell), x, y, _b),
-                cell: Number(cell),
-                x,
-                y,
-            }
+        const _newBoard = twoDBoard.map((row, y) => row.map((cell, x) => {
+
+
+            const neighbors = this.getNeigbors(Number(cell), x, y, twoDBoard);
+            const aliveCount = neighbors.reduce((total, item) => total + Number(item), 0);
+            const alive = determineStatusOfCell(Number(cell), aliveCount);
+            return alive ? 1 : 0;
         }));
 
-        const bb = neighbors.map(row => {
-            return row.map(cell => {
-                const aliveCount = cell.neighbors.reduce((total, item) => total + Number(item), 0);
-                const alive = determineStatusOfCell(cell.cell, aliveCount);
-
-                if (alive) {
-
-                    return 1;
-                }
-
-                return 0;
-            })
-        });
-        const newBoard = deepFlatten(bb).join("");
+        const newBoard = deepFlatten(_newBoard).join("");
 
         this.setState({board: newBoard, generation: this.state.generation + 1});
 
@@ -197,65 +185,43 @@ class App extends Component {
     }
 
     render() {
+        const {running, generation} = this.state;
         const btnKlass = this.state.running ? 'btn-danger' : 'btn-success';
         return (
             <div className="app container">
-                <h1 className={'my-3 text-center text-uppercase'}>Game of Life
-                    <span className={'pl-3'}>
+                <div className={'row my-3 d-flex justify-content-center-align-items-center'}>
+                     <span className={'text-uppercase mx-2 mb-2'}>
+                        Game of Life
+                    </span>
+                     <Params
+                         {...this.state}
+                         handleUpdateBoardSize={this.handleUpdateBoardSize.bind(this)}
+                         handleGenerateBoard={this.handleGenerateBoard.bind(this)}
+                         updateAliveProportion={e => this.setState({aliveProportion: e.target.value})}
+                     />
+
+                    <span className={'mx-2'}>
                         <button className={'btn text-capitalize ' + btnKlass} onClick={this.toggleGame}>
-                        {this.state.running ? 'stop' : 'start'}
+                        {running ? 'stop' : 'start'}
                     </button>
 
                     </span>
-                </h1>
-                <div className={'row'}>
-                    <div className={'col-md-3'}>
-                        <div className={'row'}>
-                            <form>
-                                <label>Cells</label>
-                                <select
-                                    className={'form-control'}
-                                    value={this.state.boardSize} onChange={e => this.handleUpdateBoardSize(e)}>
-                                    <option value={9}>9</option>
-                                    <option value={100}>100</option>
-                                    <option value={2500}>2500</option>
-                                    <option value={10000}>10000</option>
-                                </select>
-                            </form>
-                        </div>
-                        <div className={'row my-3'}>
-                            <form onSubmit={e => this.handleGenerateBoard(e)}>
-                                <label>
-                                    Alive %
-                                </label>
-                                <input
-                                    onChange={e => this.setState({aliveProportion: e.target.value})}
-                                    className={'form-control'} type={'number'} value={this.state.aliveProportion}
-                                    step={0.05}
-                                />
-                                <button type={'submit'} className={'my-2 btn btn-info'}>Generate</button>
-                            </form>
-                        </div>
-                        <div className={'row my-3'}>
-                            <h3 className={this.state.running ? null : 'd-none'}>
+                     <span className={running ? 'pull-right' : 'd-none'}>
 
-                                <b>Generation: </b>
-                                <span className={'mono'}>
-                                    {this.state.generation}
-                                </span>
-                            </h3>
-                        </div>
-
-
-                    </div>
-                    <div className={'col-md-9 row d-flex my-3'}>
-                        <Board
-                            {...this.state}
-                            updateBoard={this.updateBoard}
-                        />
-                    </div>
-
+                        <b>Generation: </b>
+                        <span className={'mono'}>
+                            {generation}
+                            </span>
+                    </span>
                 </div>
+
+                <div className={'row d-flex justify-content-center align-items-center my-3'}>
+                    <Board
+                        {...this.state}
+                        updateBoard={this.updateBoard}
+                    />
+                </div>
+
             </div>
         );
     }
