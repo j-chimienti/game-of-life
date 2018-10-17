@@ -4,44 +4,38 @@ import './Board.css';
 import {chunk} from "./utils";
 
 
+let canvas = null;
+const canvasWidth = 500;
+
 function Board({board, running = false, updateBoard, boardSize}) {
+
 
     const _board = Array.from(board);
 
-
     const boardArr = chunk(_board, Math.sqrt(boardSize));
 
-    let klass = 'cell pointer ';
+    if (canvas) {
 
-    if (2500 === boardSize) {
+        var ctx = canvas.getContext('2d');
+        const width = canvasWidth / boardArr[0].length;
 
-        klass += 'one-thousand';
-    } else if (10000 === boardSize) {
 
-        klass += 'ten-thousand';
+
+        boardArr.map((row, y) => row.map((cell, x) => {
+
+            ctx.fillStyle = Number(cell) === 1 ? '#3CB50F' : '#3399F3';
+            ctx.fillRect(x * width,y * width,width,width)
+        }));
+
+
+
     }
 
     return (
-        <div>
-            {
-                boardArr.map((row, y) => {
-                    return (
-                        <div className={'row'} key={y}>
-                            {row.map((cell, x) => {
-                                return (
-                                    <div
-                                        key={x}
-                                        onClick={e => !running && updateBoard(cell, x, y)}
-                                        className={Number(cell) === 1 ? `${klass} bg-success` : `${klass} bg-info`}>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );
+        <canvas id={'canvas'} ref={e => canvas = e} width={canvasWidth} height={canvasWidth}>
+
+        </canvas>
+    )
 }
 
 Board.propTypes = {};
