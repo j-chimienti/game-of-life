@@ -2,12 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Board.css';
 import {chunk} from "./utils";
+import _throttle from 'lodash/throttle';
 
 
 let canvas = null;
-const canvasWidth = 500;
+let canvasWidth = Math.floor(document.body.clientWidth * .9);
 
-function Board({board, running = false, updateBoard, boardSize}) {
+
+window.addEventListener('resize', _throttle(() => {
+
+
+    canvasWidth = Math.floor(document.body.clientWidth * .9);
+}, 200));
+
+function Board({board, boardSize}) {
 
 
     const _board = Array.from(board);
@@ -20,13 +28,11 @@ function Board({board, running = false, updateBoard, boardSize}) {
         const width = canvasWidth / boardArr[0].length;
 
 
-
         boardArr.map((row, y) => row.map((cell, x) => {
 
             ctx.fillStyle = Number(cell) === 1 ? '#3CB50F' : '#3399F3';
-            ctx.fillRect(x * width,y * width,width,width)
+            ctx.fillRect(x * width, y * width, width, width)
         }));
-
 
 
     }

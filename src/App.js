@@ -5,16 +5,17 @@ import Board from "./Board";
 import {determineStatusOfCell, deepFlatten, chunk, shuffle} from "./utils";
 import Params from "./Params";
 
-const boardSize = 100;
+const boardSize = 2500;
 
 class App extends Component {
 
 
+    paramsModal;
     state = {
         board: '0'.repeat(boardSize),
         boardSize,
         running: false,
-        aliveProportion: 25,
+        aliveProportion: 20,
         gameInterval: null,
         generation: 0
     };
@@ -27,17 +28,27 @@ class App extends Component {
         this.generateBoard = this.generateBoard.bind(this);
         this.toggleGame = this.toggleGame.bind(this);
         this.handleGenerateBoard = this.handleGenerateBoard.bind(this);
+        this.showParamsModal = this.showParamsModal.bind(this);
+        this.handleUpdateBoardSize = this.handleUpdateBoardSize.bind(this);
 
 
     }
 
     componentDidMount() {
+
+        this.paramsModal = window.$('#showParamsModal');
+
+        this.paramsModal.modal({
+            show: false,
+        });
+
         this.generateBoard();
     }
 
 
     handleGenerateBoard(e) {
         e.preventDefault();
+        this.paramsModal.modal('hide');
         this.generateBoard();
 
     }
@@ -184,21 +195,57 @@ class App extends Component {
         else this.startGame();
     }
 
+    showParamsModal() {
+
+        this.paramsModal.modal({
+            show: true,
+        });
+    }
+
     render() {
         const {running, generation} = this.state;
         const btnKlass = this.state.running ? 'btn-danger' : 'btn-success';
         return (
             <div className="app container">
-                <div className={'row my-3 d-flex justify-content-center-align-items-center'}>
-                     <span className={'text-uppercase mx-2 mb-2'}>
+                <div className={'row my-3'}>
+                     <span
+
+                         className={'text-uppercase px-2'}>
                         Game of Life
                     </span>
-                     <Params
-                         {...this.state}
-                         handleUpdateBoardSize={this.handleUpdateBoardSize.bind(this)}
-                         handleGenerateBoard={this.handleGenerateBoard.bind(this)}
-                         updateAliveProportion={e => this.setState({aliveProportion: e.target.value})}
-                     />
+
+                    <button type="button"
+                            className="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#paramsModal"
+                    >
+                        <i className="fa fa-wrench">
+
+                        </i>
+                    </button>
+
+                    <div className="modal fade" tabIndex="-1" role="dialog" id={'paramsModal'}>
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">Params</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <Params
+                                        {...this.state}
+                                        generateBoard={this.generateBoard.bind(this)}
+                                        handleUpdateBoardSize={this.handleUpdateBoardSize}
+                                        handleGenerateBoard={this.handleGenerateBoard.bind(this)}
+                                        updateAliveProportion={e => this.setState({aliveProportion: e.target.value})}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <span className={'mx-2'}>
                         <button className={'btn text-capitalize ' + btnKlass} onClick={this.toggleGame}>
@@ -206,7 +253,7 @@ class App extends Component {
                     </button>
 
                     </span>
-                     <span className={running ? 'pull-right' : 'd-none'}>
+                    <span className={'pull-right pl-3'}>
 
                         <b>Generation: </b>
                         <span className={'mono'}>

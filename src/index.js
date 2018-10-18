@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.min';
 window.$ = $;
 window.jquery = $;
 window.jQuery = $;

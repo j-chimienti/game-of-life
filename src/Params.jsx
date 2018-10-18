@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Params({handleGenerateBoard, updateAliveProportion, aliveProportion, boardSize, handleUpdateBoardSize}) {
+function Params({handleGenerateBoard, generateBoard, updateAliveProportion, aliveProportion, boardSize, handleUpdateBoardSize}) {
     return (
-        <form className="form-inline mx-2" onSubmit={e => handleGenerateBoard(e)}>
-            <div className={'form-group'}>
-                <label htmlFor={'boardSize'}>Cells</label>
+        <form className="form mx-2" onSubmit={e => handleGenerateBoard(e)}>
+
+            <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            Cells
+                        </span>
+                </div>
                 <select
                     id={'boardSize'}
                     name={'boardSize'}
-                    className={'form-control mb-2 mx-2'}
+                    className={'form-control'}
                     value={boardSize}
                     onChange={handleUpdateBoardSize}
                 >
@@ -18,22 +23,47 @@ function Params({handleGenerateBoard, updateAliveProportion, aliveProportion, bo
                     <option value={2500}>2500</option>
                     <option value={10000}>10000</option>
                 </select>
+
             </div>
-            <label htmlFor={'aliveProportion'}>
-                Alive %
-            </label>
-            <input
-                id={'aliveProportion'}
-                name={'aliveProportion'}
-                min={1}
-                max={99}
-                onChange={e => updateAliveProportion(e)}
-                className={'form-control mb-2 mx-2'}
-                type={'number'}
-                value={aliveProportion}
-                step={1}
-            />
-            <button type={'submit'} className={'btn btn-default mx-2 mb-2'}>Generate</button>
+            <div className={'input-group mb-3'}>
+                <div className={'input-group-prepend'}>
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">
+                            Alive %
+                        </span>
+                    </div>
+                </div>
+                <input
+                    id={'aliveProportion'}
+                    name={'aliveProportion'}
+                    min={1}
+                    max={99}
+                    onChange={e => updateAliveProportion(e)}
+                    className={'form-control'}
+                    type={'number'}
+                    value={aliveProportion}
+                    step={1}
+                />
+                <div className={'input-group-append'}>
+                    <button
+                        type={'button'}
+                        onClick={generateBoard} className={'btn btn-outline-success'}>
+                        generate
+                    </button>
+                </div>
+            </div>
+            <div className={'row my-3 d-flex align-items-center justify-content-end'}>
+
+                <button
+
+
+                    type="button" className="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    Close
+                </button>
+
+            </div>
         </form>
 
 
