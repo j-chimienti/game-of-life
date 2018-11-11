@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Params({handleGenerateBoard, generateBoard, updateAliveProportion, aliveProportion, boardSize, handleUpdateBoardSize}) {
+function Params({handleGenerateBoard, generateBoard, updateAliveProportion, boardSize, handleUpdateBoardSize, speed, updateSpeed}) {
     return (
         <form className="form mx-2" onSubmit={e => handleGenerateBoard(e)}>
 
@@ -26,32 +26,16 @@ function Params({handleGenerateBoard, generateBoard, updateAliveProportion, aliv
 
             </div>
             <div className={'input-group mb-3'}>
-                <div className={'input-group-prepend'}>
-
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">
-                            Alive %
+                <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            Cells
                         </span>
-                    </div>
                 </div>
                 <input
-                    id={'aliveProportion'}
-                    name={'aliveProportion'}
-                    min={1}
-                    max={99}
-                    onChange={e => updateAliveProportion(e)}
+                    value={speed}
+                    onChange={updateSpeed}
                     className={'form-control'}
-                    type={'number'}
-                    value={aliveProportion}
-                    step={1}
-                />
-                <div className={'input-group-append'}>
-                    <button
-                        type={'button'}
-                        onClick={generateBoard} className={'btn btn-outline-success'}>
-                        generate
-                    </button>
-                </div>
+                    type={'range'} min={0} max={1000} />
             </div>
             <div className={'row my-3 d-flex align-items-center justify-content-end'}>
 
@@ -70,7 +54,10 @@ function Params({handleGenerateBoard, generateBoard, updateAliveProportion, aliv
     );
 }
 
-Params.propTypes = {};
+Params.propTypes = {
+    speed: PropTypes.number.isRequired,
+    updateSpeed: PropTypes.func.isRequired
+};
 Params.defaultProps = {};
 
 export default Params;

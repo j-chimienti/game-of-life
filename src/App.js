@@ -7,6 +7,8 @@ import Params from "./Params";
 
 const boardSize = 2500;
 
+const speed = 950;
+
 class App extends Component {
 
 
@@ -14,22 +16,75 @@ class App extends Component {
     state = {
         board: '0'.repeat(boardSize),
         boardSize,
+        speed, // update every 100ms
         running: false,
-        aliveProportion: 20,
-        gameInterval: null,
+        genPerSec: App.getSpeed(speed).genPerSec,
         generation: 0
     };
+
+    gameInterval = null;
+
 
     constructor() {
 
         super();
 
         this.updateBoard = this.updateBoard.bind(this);
+        this.updateSpeed = this.updateSpeed.bind(this);
         this.generateBoard = this.generateBoard.bind(this);
         this.toggleGame = this.toggleGame.bind(this);
         this.handleGenerateBoard = this.handleGenerateBoard.bind(this);
         this.showParamsModal = this.showParamsModal.bind(this);
         this.handleUpdateBoardSize = this.handleUpdateBoardSize.bind(this);
+        this.handleCanvasClick = this.handleCanvasClick.bind(this);
+
+    }
+
+
+    updateSpeed(e) {
+
+        const speed = +e.target.value;
+
+        const {gameSpeed, genPerSec} = App.getSpeed(speed);
+
+        if (this.gameInterval) {
+
+            clearInterval(this.gameInterval);
+            this.gameInterval = null;
+            this.gameInterval = setInterval(() => this.advanceBoard(), gameSpeed);
+        }
+        // setInterval(() => this.advanceBoard(), _speed)
+        this.setState({
+            ...this.state,
+            genPerSec,
+            speed: +e.target.value,
+        });
+
+
+    }
+
+    handleCanvasClick(e) {
+
+        const {board} = this.state;
+
+
+        const canvas = document.querySelector('canvas');
+
+        const {top, left} = canvas.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+        const cellsPerRow = Math.sqrt(boardSize);
+        const cellWidth = canvas.width / cellsPerRow;
+        const row = Math.floor(y / cellWidth);
+        const col = Math.floor(x / cellWidth);
+
+        const index = (row * cellsPerRow) + col;
+        const _board = [...board.slice(0, index), 1, ...board.slice(index + 1)];
+
+        this.setState({
+            ...this.state,
+            board: _board.join(""),
+        })
 
 
     }
@@ -55,16 +110,15 @@ class App extends Component {
 
     generateBoard() {
 
-        const {aliveProportion, running, boardSize} = this.state;
+        const {running, boardSize} = this.state;
 
-        const threshold = (aliveProportion / 100) * boardSize;
 
         if (running) {
 
             window.alert('invalid request');
             return false;
         }
-        const board = Array.from({length: boardSize}, (v, i) => i < threshold ? 1 : 0);
+        const board = Array.from({length: boardSize}, () => 0);
 
         const shuffledBoard = shuffle(board);
 
@@ -99,23 +153,40 @@ class App extends Component {
 
     }
 
+    static getSpeed(speed = null) {
+
+
+        const gameSpeed = 1050 - speed;
+        const genPerSec = 1000 / gameSpeed;
+
+        return {
+            gameSpeed,
+            genPerSec
+        };
+
+    }
+
     startGame() {
+
+
+        const {gameSpeed, genPerSec} = App.getSpeed(this.state.speed);
 
         const state = {
             running: true,
             generation: 0,
-            gameInterval: setInterval(() => this.advanceBoard(), 100),
+
         };
-        if (this.state.gameInterval) {
-
-            clearInterval(this.state.gameInterval);
-
-            this.setState({gameInterval: null, running: false, generation: 0}, () => {
-                this.setState(state);
-            });
+        if (this.gameInterval) {
+            clearInterval(this.gameInterval);
+            this.gameInterval = null;
 
         }
-        else this.setState(state);
+        this.gameInterval = setInterval(() => this.advanceBoard(), gameSpeed);
+        this.setState({
+            ...this.state,
+            genPerSec,
+            state,
+        });
     }
 
     getNeigbors(cell, x, y, array) {
@@ -181,14 +252,16 @@ class App extends Component {
     toggleGame() {
 
 
-        const {running, gameInterval} = this.state;
+        const {running} = this.state;
         if (running) {
 
-            clearInterval(gameInterval);
+            clearInterval(this.gameInterval);
+
+            this.gameInterval = null;
 
             this.setState({
+                ...this.state,
                 running: false,
-                gameInterval: null,
             });
 
         }
@@ -203,7 +276,7 @@ class App extends Component {
     }
 
     render() {
-        const {running, generation} = this.state;
+        const {running, generation, genPerSec} = this.state;
         const btnKlass = this.state.running ? 'btn-danger' : 'btn-success';
         return (
             <div className="app container">
@@ -236,10 +309,10 @@ class App extends Component {
                                 <div className="modal-body">
                                     <Params
                                         {...this.state}
+                                        updateSpeed={this.updateSpeed}
                                         generateBoard={this.generateBoard.bind(this)}
                                         handleUpdateBoardSize={this.handleUpdateBoardSize}
                                         handleGenerateBoard={this.handleGenerateBoard.bind(this)}
-                                        updateAliveProportion={e => this.setState({aliveProportion: e.target.value})}
                                     />
                                 </div>
                             </div>
@@ -253,19 +326,24 @@ class App extends Component {
                     </button>
 
                     </span>
-                    <span className={'pull-right pl-3'}>
 
-                        <b>Generation: </b>
-                        <span className={'mono'}>
+                    <b>Generation: </b>
+                    <span className={'mono mx-2'}>
                             {generation}
                             </span>
-                    </span>
+                    <b>Gen / sec</b>
+                    <span className={'mono mx-2'}>
+                            {genPerSec.toFixed(1)}
+                        </span>
+
                 </div>
+
 
                 <div className={'row d-flex justify-content-center align-items-center my-3'}>
                     <Board
                         {...this.state}
                         updateBoard={this.updateBoard}
+                        handleCanvasClick={this.handleCanvasClick}
                     />
                 </div>
 

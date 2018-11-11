@@ -6,16 +6,24 @@ import _throttle from 'lodash/throttle';
 
 
 let canvas = null;
-let canvasWidth = Math.floor(document.body.clientWidth * .9);
+let canvasWidth = getDimensions();
 
+function getDimensions() {
+
+    const w = Math.floor(document.body.clientWidth * .85);
+
+    const h = Math.floor(document.body.clientHeight * .83);
+
+    return Math.min(w, h);
+}
 
 window.addEventListener('resize', _throttle(() => {
 
 
-    canvasWidth = Math.floor(document.body.clientWidth * .9);
+    canvasWidth = getDimensions();
 }, 200));
 
-function Board({board, boardSize}) {
+function Board({board, boardSize, handleCanvasClick}) {
 
 
     const _board = Array.from(board);
@@ -38,13 +46,20 @@ function Board({board, boardSize}) {
     }
 
     return (
-        <canvas id={'canvas'} ref={e => canvas = e} width={canvasWidth} height={canvasWidth}>
-
+        <canvas
+            onClick={handleCanvasClick}
+            id={'canvas'}
+            ref={e => canvas = e}
+            width={canvasWidth}
+            height={canvasWidth}
+        >
         </canvas>
     )
 }
 
-Board.propTypes = {};
+Board.propTypes = {
+    handleCanvasClick: PropTypes.func.isRequired,
+};
 Board.defaultProps = {};
 
 export default Board;

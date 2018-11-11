@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0e62db2c-baf4-45a8-8b3b-2f5b690b9e4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Params.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Params.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,12 +21,13 @@
     <session id="2004493173">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -37,9 +35,9 @@
           <entry key="css" value="10" />
           <entry key="env" value="4" />
           <entry key="html" value="4" />
-          <entry key="js" value="16" />
+          <entry key="js" value="17" />
           <entry key="json" value="6" />
-          <entry key="jsx" value="3" />
+          <entry key="jsx" value="5" />
           <entry key="md" value="5" />
         </counts>
       </usages-collector>
@@ -48,37 +46,37 @@
           <entry key="CSS" value="10" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="6" />
-          <entry key="JSX Harmony" value="3" />
-          <entry key="JavaScript" value="16" />
+          <entry key="JSX Harmony" value="5" />
+          <entry key="JavaScript" value="17" />
           <entry key="Markdown" value="5" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="542" />
+          <entry key="css" value="618" />
           <entry key="env" value="4" />
           <entry key="html" value="27" />
-          <entry key="js" value="7069" />
+          <entry key="js" value="9467" />
           <entry key="json" value="184" />
-          <entry key="jsx" value="2744" />
+          <entry key="jsx" value="3190" />
           <entry key="md" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="542" />
+          <entry key="CSS" value="618" />
           <entry key="HTML" value="27" />
           <entry key="JSON" value="184" />
-          <entry key="JSX Harmony" value="2744" />
-          <entry key="JavaScript" value="7069" />
+          <entry key="JSX Harmony" value="3190" />
+          <entry key="JavaScript" value="9467" />
           <entry key="Markdown" value="27" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="5" />
+          <entry key="ESLintLanguageService" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -86,51 +84,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Params.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Board.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-491">
-              <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Board.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="255" column="53" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,11 +93,50 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="340" lean-forward="true" selection-start-line="340" selection-end-line="340" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#!!block;n#handleCanvasClick#0;n#App#0" />
+                <element signature="n#!!block;n#componentDidMount#0;n#App#0" />
+                <element signature="n#!!block;n#getNeigbors#0;n#App#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Board.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="30" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Params.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1334">
+              <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="69">
+              <caret line="3" column="16" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -158,7 +150,6 @@
       <find>generateBoard</find>
       <find>Board</find>
       <find>seed</find>
-      <find>interval</find>
       <find>gh-pages</find>
       <find>local</find>
       <find>aliveProportion</find>
@@ -170,6 +161,16 @@
       <find>handleUpdateBoardSize</find>
       <find>Game of</find>
       <find>generation</find>
+      <find>gener</find>
+      <find>&lt;Boar</find>
+      <find>interval</find>
+      <find>in</find>
+      <find>speed</find>
+      <find>setI</find>
+      <find>gameInte</find>
+      <find>1050</find>
+      <find>genPerSec</find>
+      <find>sec</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,12 +184,12 @@
         <option value="$PROJECT_DIR$/build/index.html" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/Board.css" />
-        <option value="$PROJECT_DIR$/src/Board.jsx" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/Params.jsx" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/Board.jsx" />
+        <option value="$PROJECT_DIR$/src/Params.jsx" />
+        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
@@ -210,9 +211,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
-    <option name="y" value="23" />
-    <option name="width" value="1187" />
+    <option name="x" value="50" />
+    <option name="y" value="27" />
+    <option name="width" value="1002" />
     <option name="height" value="777" />
   </component>
   <component name="ProjectView">
@@ -220,6 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,13 +232,12 @@
             <path>
               <item name="game-of-life" type="b2602c69:ProjectViewProjectNode" />
               <item name="game-of-life" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,8 +296,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.deploy" />
       </list>
     </recent_temporary>
   </component>
@@ -314,18 +315,19 @@
       <workItem from="1539710526247" duration="3646000" />
       <workItem from="1539744085600" duration="586000" />
       <workItem from="1539779462598" duration="2010000" />
-      <workItem from="1539868270483" duration="2471000" />
+      <workItem from="1539868270483" duration="2571000" />
+      <workItem from="1539870971966" duration="518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21950000" />
+    <option name="totallyTimeSpent" value="22568000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="23" width="1187" height="777" extended-state="0" />
+    <frame x="210" y="23" width="1002" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24871355" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29561672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -414,30 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491">
-          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -449,19 +427,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Params.jsx">
+    <entry file="file://$PROJECT_DIR$/src/Board.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="138">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -472,12 +444,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="30" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Params.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="255" column="53" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
+        <state relative-caret-position="385">
+          <caret line="340" lean-forward="true" selection-start-line="340" selection-end-line="340" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#handleCanvasClick#0;n#App#0" />
+            <element signature="n#!!block;n#componentDidMount#0;n#App#0" />
+            <element signature="n#!!block;n#getNeigbors#0;n#App#0" />
           </folding>
         </state>
       </provider>
