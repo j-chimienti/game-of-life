@@ -185,7 +185,7 @@ class App extends Component {
         this.setState({
             ...this.state,
             genPerSec,
-            state,
+            ...state,
         });
     }
 
@@ -331,7 +331,7 @@ class App extends Component {
                     <span className={'mono mx-2'}>
                             {generation}
                             </span>
-                    <b>Gen / sec</b>
+                    <b>Gen / sec:</b>
                     <span className={'mono mx-2'}>
                             {genPerSec.toFixed(1)}
                         </span>

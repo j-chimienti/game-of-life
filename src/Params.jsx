@@ -28,7 +28,7 @@ function Params({handleGenerateBoard, generateBoard, updateAliveProportion, boar
             <div className={'input-group mb-3'}>
                 <div className="input-group-prepend">
                         <span className="input-group-text">
-                            Cells
+                            Speed
                         </span>
                 </div>
                 <input
